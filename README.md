@@ -101,126 +101,133 @@ Frontend
 Render — Backend
 
 Render PostgreSQL — Database
+## 📁 Project Structure
+    library-management/
+    │
+    ├── backend/
+    │   ├── Dockerfile
+    │   ├── pom.xml
+    │   └── src/
+    │       └── main/
+    │           ├── java/
+    │           │   └── com/project/library/
+    │           │       ├── controller/
+    │           │       ├── entity/
+    │           │       ├── repository/
+    │           │       └── service/
+    │           │
+    │           └── resources/
+    │               └── application.properties
+    │
+    ├── frontend/
+    │   ├── package.json
+    │   ├── vite.config.js
+    │   ├── index.html
+    │   └── src/
+    │       ├── App.jsx
+    │       ├── main.jsx
+    │       ├── index.css
+    │       ├── pages/
+    │       │   ├── Dashboard.jsx
+    │       │   ├── Books.jsx
+    │       │   ├── Members.jsx
+    │       │   └── Issues.jsx
+    │       └── services/
+    │           └── api.js
+    │
+    ├── .gitignore
+    └── README.md
 
-📁 Project Structure
-library-management/
-│
-├── backend/
-│   ├── Dockerfile
-│   ├── pom.xml
-│   └── src/
-│       └── main/
-│           ├── java/
-│           │   └── com/project/library/
-│           │       ├── controller/
-│           │       ├── entity/
-│           │       ├── repository/
-│           │       └── service/
-│           │
-│           └── resources/
-│               └── application.properties
-│
-├── frontend/
-│   ├── package.json
-│   ├── vite.config.js
-│   ├── index.html
-│   └── src/
-│       ├── App.jsx
-│       ├── main.jsx
-│       ├── index.css
-│       ├── pages/
-│       │   ├── Dashboard.jsx
-│       │   ├── Books.jsx
-│       │   ├── Members.jsx
-│       │   └── Issues.jsx
-│       └── services/
-│           └── api.js
-│
-├── .gitignore
-└── README.md
+## 🔗 REST API Endpoints
+```bash
+      Books:
+      Method	          Endpoint	          Description
+      GET	          /api/books	          Get all books
+      GET          	/api/books/{id}	     Get book by ID
+      POST          /api/books	          Add a book
+      PUT          	/api/books/{id}	     Update a book
+      DELETE        /api/books/{id}	     Delete a book
+      
+      Members:
+      Method	          Endpoint	          Description
+      GET	          /api/members	        Get all members
+      GET	          /api/members/{id}	   Get member by ID
+      POST	         /api/members        	Add a member
+      PUT	          /api/members/{id}   	Update a member
+      DELETE       	/api/members/{id}	   Delete a member
+      
+      Issues:
+      Method	                    Endpoint	                             Description
+      GET	          /api/issues          	                            Get all issues
+      POST	         /api/issues/book/{bookId}/member/{memberId}	      Issue a book
+      PUT	          /api/issues/return/{issueId}	                     Return a book
+```
 
-🔗 REST API Endpoints
-Books
-Method	Endpoint	Description
-GET	/api/books	Get all books
-GET	/api/books/{id}	Get book by ID
-POST	/api/books	Add a book
-PUT	/api/books/{id}	Update a book
-DELETE	/api/books/{id}	Delete a book
-Members
-Method	Endpoint	Description
-GET	/api/members	Get all members
-GET	/api/members/{id}	Get member by ID
-POST	/api/members	Add a member
-PUT	/api/members/{id}	Update a member
-DELETE	/api/members/{id}	Delete a member
-Issues
-Method	Endpoint	Description
-GET	/api/issues	Get all issues
-POST	/api/issues/book/{bookId}/member/{memberId}	Issue a book
-PUT	/api/issues/return/{issueId}	Return a book
-⚙️ Local Setup
+## ⚙️ Local Setup
 Clone the repository
-git clone YOUR_GITHUB_REPOSITORY_URL
+```bash
+git clone https://github.com/Darshan-jk/Library-Management
+```
+```bash
 cd library-management
-
-Backend Setup
+```
+## Backend Setup
 
 Go to the backend:
-
+```bash
 cd backend
+```
 
-
-Configure PostgreSQL environment variables:
-
+## Configure PostgreSQL environment variables:
+```bash
 DATABASE_URL=jdbc:postgresql://localhost:5432/librarydb
 DB_USERNAME=postgres
 DB_PASSWORD=your_password
-
+```
 
 Then run:
-
+```bash
 mvn spring-boot:run
-
+```
 
 Backend will run on:
-
+```bash
 http://localhost:8080
-
+```
 Frontend Setup
 
 Open another terminal:
-
+```bash
 cd frontend
-
+```
 
 Install dependencies:
-
+```bash
 npm install
-
+```
 
 Create a .env file:
-
+```bash
 VITE_API_URL=http://localhost:8080/api
-
+```
 
 Start the frontend:
-
+```bash
 npm run dev
-
+```
 
 Frontend will run on:
-
+```bash
 http://localhost:5173
-
-☁️ Deployment
-Backend
+```
+## ☁️ Deployment
+## Backend
 
 The Spring Boot backend is deployed on Render using Docker and Java 21.
 
 The backend connects to a PostgreSQL database hosted on Render.
 
-Frontend
+## Frontend
 
 The React frontend is deployed on Vercel.
 
@@ -228,10 +235,10 @@ The frontend uses the following environment variable:
 
 VITE_API_URL=https://YOUR_RENDER_BACKEND_URL/api
 
-🗄️ Database
+## 🗄️ Database
 
 The project uses PostgreSQL with the following main entities:
-
+```bash
 Book
  ├── id
  ├── title
@@ -252,23 +259,23 @@ Issue
  ├── issueDate
  ├── returnDate
  └── status
-
-🔐 Environment Variables
+```
+## 🔐 Environment Variables
 
 Do not commit database credentials to GitHub.
 
-Backend:
-
+## Backend:
+```bash
 DATABASE_URL
 DB_USERNAME
 DB_PASSWORD
+```
 
-
-Frontend:
-
+## Frontend:
+```bash
 VITE_API_URL
-
-👨‍💻 Author
+```
+## 👨‍💻 Author
 
 Darshan J K
 

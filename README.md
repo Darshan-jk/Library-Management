@@ -5,9 +5,23 @@ A full-stack Library Management System built using React + Spring Boot + Postgre
 The application allows users to manage books, members, and book issue/return operations through a simple web interface.
 
 ## 🌐 Live Demo
-Frontend
 
-## 🔗 [Open Library Management System](https://library-management-sigma-umber.vercel.app/)
+> ⚠️ **Important:** The backend is hosted on Render's free service. It may take some time to wake up after a period of inactivity.
+>
+> **Please activate/wake up the backend first by opening the link below and waiting until it responds. Then open the frontend.**
+
+### 1️⃣ Activate Backend
+
+🔗 [Open Backend API](https://library-management-g07m.onrender.com/api/books)
+
+Wait for the backend to start before proceeding to the frontend.
+
+### 2️⃣ Open Frontend
+
+🔗 [Open Library Management System](https://library-management-sigma-umber.vercel.app)
+
+The frontend communicates with the Spring Boot backend through the deployed REST API.
+
 
 ## Backend API
 
